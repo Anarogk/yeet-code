@@ -1,13 +1,16 @@
 class Solution:
     def minimumCoins(self, prices: List[int]) -> int:
-        @cache
-        def dfs(i, j):
-            if i == len(prices):
-                return 0
-
-            take = prices[i] + dfs(i + 1, 2 * i + 1)
-            skip = dfs(i + 1, j) if j >= i and i > 0 else float('inf')
-
-            return min(take, skip)
+        temp = [(0,0)]
+        for i in range(len(prices)):
+            pos,new = 2 * i + 2, temp[0][1] + prices[i]
+            if i == temp[0][0]:
+                temp.pop(0)
+            while temp:
+                if temp[-1][1] >= new:
+                    temp.pop()
+                else:
+                    break
+            temp.append((pos,new))
+        return temp[0][1]
 
         return dfs(0, 0)
