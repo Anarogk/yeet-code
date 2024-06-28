@@ -7,5 +7,4 @@ class Solution:
             item = heapq.heappop(nums)
             arr.append(heapq.heappop(nums))
             arr.append(item)
-
         return arr
