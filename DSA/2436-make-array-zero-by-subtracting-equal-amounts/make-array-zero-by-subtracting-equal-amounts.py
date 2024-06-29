@@ -2,12 +2,6 @@ from heapq import heapify
 
 class Solution:
     def minimumOperations(self, nums: List[int]) -> int:
-        unique = set()
-
-        for num in nums:
-            if num:
-                unique.add(num)
-            
-        return len(unique)
+        return len(set(nums)) if 0 not in nums else len(set(nums))-1
                     
                 
