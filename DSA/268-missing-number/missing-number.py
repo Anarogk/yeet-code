@@ -1,9 +1,9 @@
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
-        for i in range(len(nums)+1):
-            print(i)
-            if i in nums:
-                continue
-            else:
-                return i
-        return 0
+        n = len(nums) 
+
+        totalSum = (n * (n + 1)) // 2
+
+        arraySum = sum(nums)
+
+        return totalSum - arraySum
