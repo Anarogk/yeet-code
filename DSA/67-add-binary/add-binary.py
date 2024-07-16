@@ -1,6 +1,7 @@
 class Solution:
     def addBinary(self, a: str, b: str) -> str:
-        
+        if a == "0" and b=="0":
+            return "0"
         num, num2 = 0,0
         for j,i in enumerate(a[::-1]):
             num += int(i) * 2**j
@@ -10,7 +11,6 @@ class Solution:
         while num>0:
             s = str(num%2) + s
             num = num//2
-        if a == "0" and b=="0":
-            return "0"
+        
             
         return s
