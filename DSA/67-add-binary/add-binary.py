@@ -10,5 +10,7 @@ class Solution:
         while num>0:
             s = str(num%2) + s
             num = num//2
+        if a == "0" and b=="0":
+            return "0"
             
-        return "0" if a=="0" and b=="0" else s
+        return s
