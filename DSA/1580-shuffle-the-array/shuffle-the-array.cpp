@@ -3,10 +3,10 @@ public:
     vector<int> shuffle(vector<int>& nums, int n) {
         int j = n;
         vector<int> ans;
-        for( int i = 0; i< n; i++) {
+        for( int i = 0; i< n && j<nums.size(); i++) {
             ans.push_back(nums[i]);
             ans.push_back(nums[j]);
-            j+=1;
+            j++;
         };
         return ans;
     }
