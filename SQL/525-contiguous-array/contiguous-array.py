@@ -5,6 +5,5 @@ class Solution:
         for i , v in enumerate(nums):
             q+= v -0.5
             res = max(res, i - c.setdefault(q, i))
-        
         return res
         
