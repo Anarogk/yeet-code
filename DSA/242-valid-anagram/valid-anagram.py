@@ -3,10 +3,11 @@ class Solution:
         if len(s) != len(t):
             return False
         dic = defaultdict(int)
-        for x in s:
-            dic[x] +=1
-        for x in t:
-            dic[x] -=1
+        for i in s:
+            dic[i]+=1
+        for j in t:
+            dic[j]-=1
+        
         for i in dic.values():
             if i != 0:
                 return False
