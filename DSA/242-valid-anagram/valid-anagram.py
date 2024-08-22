@@ -2,7 +2,6 @@ class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         if len(s) != len(t):
             return False
-
         dic = defaultdict(int)
         for x in s:
             dic[x] +=1
@@ -11,6 +10,4 @@ class Solution:
         for i in dic.values():
             if i != 0:
                 return False
-        # if Counter(list(s)) != Counter(list(t)):
-        #     return False
         return True
