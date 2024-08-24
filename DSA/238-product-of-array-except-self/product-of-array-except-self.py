@@ -7,7 +7,6 @@ class Solution:
         for i in range(n):
             result[i] = prefix
             prefix *=nums[i]
-        print(result)
         for i in range(n-1,-1,-1):
             result[i]*=postfix
             postfix*=nums[i]
