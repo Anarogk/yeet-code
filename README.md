@@ -1,2 +1,3 @@
-# yeet-code
-This one gets all the submissions from my leetcode and keeps them organized. 
+# 👨‍💻yeet-code
+This Repository has all my leet-code submissions organized. There is separate folder for DSA and SQL.
+
