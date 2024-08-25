@@ -1,15 +1,14 @@
 class Solution:
     def isValid(self, word: str) -> bool:
-        vovel , consonent = False, False
+        vowel , consonant = 0,0
         if len(word) <3:
             return False
-        for i in word:
-            if not i.isalnum():
-                return False
-            if i in "aeiouAEIOU":
-                vovel = True
-            if i.isalpha() and i not in "aeiouAEIOU":
-                consonent = True
-        if vovel and consonent:
-            return True
-        return False
+        if '@' in word or '#' in word or '$' in word:
+            return False
+        for i in range(len(word)):
+            if word[i].isalpha():
+                if word[i] in ['a', 'e', 'i', 'o', 'u'] or word[i] in ['A', 'E', 'I', 'O', 'U']:
+                    vowel += 1
+                else:
+                    consonant += 1
+        return True if (vowel != 0 and consonant != 0) else False
