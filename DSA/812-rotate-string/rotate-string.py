@@ -6,7 +6,6 @@ class Solution:
             for i in range(len(s)-1):
                 s[i] = s[i+1]
             s[-1] = temp
-            k= "".join(s)
-            if k == goal:
+            if s == list(goal):
                 return True
         return False
