@@ -9,3 +9,11 @@ class Solution:
             ans[tuple(count)].append(s)
         
         return ans.values()
+
+        # wordDict = defaultdict(list)
+
+        # for word in strs:
+        #     sortedWord = ''.join(sorted(word))
+        #     wordDict[sortedWord].append(word)
+        
+        # return wordDict.values()
