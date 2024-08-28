@@ -1,13 +1,11 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
-        mapping = {")": "(", "}":"{", "]":"["}
+        mapping = {")": "(", "}": "{", "]": "["}
         for i in s:
-            if i in mapping.keys():
-                if len(stack) == 0 or stack[-1] != mapping.get(i):
-                    return False
-                elif stack[-1] == mapping.get(i):
-                    stack.pop()
-            elif i in mapping.values():
+            if i in mapping.values():
                 stack.append(i)
+            elif i in mapping.keys():
+                if not stack or mapping.get(i) != stack.pop():
+                    return False
         return not stack
