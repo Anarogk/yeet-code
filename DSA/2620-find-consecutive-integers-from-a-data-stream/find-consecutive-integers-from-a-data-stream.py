@@ -3,18 +3,21 @@ from collections import deque
 class DataStream:
 
     def __init__(self, value: int, k: int):
-        self.k = k
-        self. val = value
-        self.t = k
+        self.key_ = value
+        self.target_counter_ = k
+        self.counter_ = 0
+        
 
     def consec(self, num: int) -> bool:
-        if self.t > 0:
-            self.t -=1
-        if num != self.val:
-            self.t = self.k
-        if self.t:
+        if num == self.key_:
+            self.counter_ += 1
+            if self.counter_ == self.target_counter_:
+                self.counter_ -= 1
+                return True
+        else:
+            self.counter_ = 0
             return False
-        return True
+
 
 
 # Your DataStream object will be instantiated and called as such:
