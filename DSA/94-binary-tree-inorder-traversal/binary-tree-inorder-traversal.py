@@ -19,14 +19,14 @@ class Solution:
         return res
 
         # recursive approch
-        res = []
+        # res = []
 
-        def helper(root):
-            if not root:
-                return
-            helper(root.left)
-            res.append(root.val)
-            helper(root.right)
+        # def helper(root):
+        #     if not root:
+        #         return
+        #     helper(root.left)
+        #     res.append(root.val)
+        #     helper(root.right)
 
-        helper(root)
-        return res
+        # helper(root)
+        # return res
