@@ -6,18 +6,20 @@
 #         self.right = right
 class Solution:
     def deepestLeavesSum(self, root: Optional[TreeNode]) -> int:
-        q = deque([root])
-        ans = 0
+        def dfs(root,level):
+            if not root: # if root is None return
+                return
+            # we sum each val on this level and add it to level key in dict
+            d[level]+=root.val 
+            # run dfs for curr's left and right
+            dfs(root.left,level+1)
+            dfs(root.right,level+1)
         
-        while q:
-            n = len(q)
-            ans = 0
-            for _ in range(n):
-                node = q.popleft()
-                ans += node.val
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
+        # default dict init
+        d=defaultdict(int)
+        # initiate dfs
+        dfs(root,0)
         
-        return ans
+        # mx is max level key of d
+        mx=max(d)
+        return d[mx] # we return added sum of nodes at max level
