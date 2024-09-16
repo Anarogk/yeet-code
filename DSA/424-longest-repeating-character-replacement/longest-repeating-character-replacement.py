@@ -1,7 +1,7 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
         count = {}  # count
-
+        res = 0
         l = 0
         max_f = 0
         for r in range(len(s)):
@@ -11,5 +11,5 @@ class Solution:
             if (r - l + 1) - max_f > k: # if len - max > k we decrement count from left element
                 count[s[l]] -= 1
                 l += 1 # move left
-
+            res = max(res, r-l +1)
         return r - l + 1 # return left
