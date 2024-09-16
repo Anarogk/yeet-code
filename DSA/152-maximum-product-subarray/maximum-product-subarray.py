@@ -5,8 +5,8 @@ class Solution:
 
         for n in nums:
 
-            tmp = curMax * n # currMax * curr
-            curMax = max(tmp, n * curMin, n)
+            tmp = curMax * n  # currMax * curr
+            curMax = max(n * curMax, n * curMin, n)
             curMin = min(tmp, n * curMin, n)
             res = max(res, curMax)
         return res
