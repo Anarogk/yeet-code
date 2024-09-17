@@ -1,8 +1,13 @@
 class Solution:
     def uniqueLetterString(self, s: str) -> int:
-        last_exists = collections.defaultdict(lambda: [-1, -1])
-        res = 0
+        dp = defaultdict(list)
+        ans = 0
         for i, c in enumerate(s):
-            last_exists[c][0], last_exists[c][1] = i, last_exists[c][0]
-            for _, exists in last_exists.items(): res += exists[0] - exists[1]
-        return res
+            dp[c].append(i)
+
+        for arr in dp.values():
+            for i, idx in enumerate(arr):
+                left = 0 if i == 0 else arr[i - 1] + 1
+                right = len(s) - 1 if i == len(arr) - 1 else arr[i + 1] - 1
+                ans += (idx - left + 1) * (right + 1 - idx)
+        return ans
