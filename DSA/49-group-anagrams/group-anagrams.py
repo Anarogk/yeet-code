@@ -1,19 +1,18 @@
+from collections import defaultdict
+
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        ans = defaultdict(list)
-        for s in strs:
-            count = [0] * 26
-
-            for c in s:
-                count[ord(c) - ord("a")] += 1
-            ans[tuple(count)].append(s)
+        # hmap = defaultdict(list)
+        # for i in strs:
+        #     k = "".join(sorted(i))
+        #     hmap[k].append(i)
         
-        return ans.values()
+        # return list(hmap.values())
 
-        # wordDict = defaultdict(list)
+        h_map = defaultdict(list)
 
-        # for word in strs:
-        #     sortedWord = ''.join(sorted(word))
-        #     wordDict[sortedWord].append(word)
-        
-        # return wordDict.values()
+        for word in strs:
+            w = "".join(sorted(word))
+            h_map[w].append(word)
+
+        return h_map.values()
